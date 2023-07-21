@@ -1,12 +1,12 @@
 import React, {useContext} from 'react'
 import TodoList from './TodoList'
-import classes from "./Todos.module.css"
 import { TodoContext } from '../store/todosContext'
+import { List } from '@chakra-ui/react'
 
 const Todos:React.FC= (props) => {
   const todoCtx = useContext(TodoContext)
   return (
-    <ul className={classes.todos}>
+    <List fontWeight="semibold" borderRadius="5px" boxShadow="2px 2px 5px rgb(195, 196, 184)" border="1px solid rgb(195, 196, 184)" margin="1rem" padding="0.6rem">
         {
           todoCtx.items.map(item => 
           <TodoList 
@@ -15,7 +15,7 @@ const Todos:React.FC= (props) => {
           onRemove={todoCtx.removeTodo.bind(null, item.id)}
           />)
          }
-  </ul>
+  </List>
   )
 }
 
