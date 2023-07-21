@@ -1,7 +1,7 @@
-import { Fragment, useState } from "react";
+
 import Todos from "./components/Todos";
-import Todo from "./models/todo"
 import NewTodo from "./components/NewTodo";
+import TodosContextProvider from "./store/todosContext";
 
 
 function App() {
@@ -9,17 +9,20 @@ function App() {
   //   new Todo("LEARN REACT"),
   //   new Todo("LEARN TYPESCRIPT")
   // ] 
-  const [todos, setTodos] = useState<Todo[]>([])
+  // const [todos, setTodos] = useState<Todo[]>([])
 
-  const addTodoHandler = (text: string) => {
-    const newTodo = new Todo(text)
-    setTodos(prev => prev.concat(newTodo))
-  }
+  // const addTodoHandler = (text: string) => {
+  //   const newTodo = new Todo(text)
+  //   setTodos(prev => [...prev, newTodo])
+  // }
+  // const removeHandler = (id: string) => {
+  //   setTodos(prev => prev.filter(item => item.id !== id))
+  // }
   return (
-    <Fragment>
-      <NewTodo onAddText={addTodoHandler} />
-      <Todos items={todos}/>
-    </Fragment>
+    <TodosContextProvider>
+      <NewTodo />
+      <Todos />
+    </TodosContextProvider>
   );
 }
 
