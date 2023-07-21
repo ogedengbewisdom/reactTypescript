@@ -2,6 +2,7 @@
 import Todos from "./components/Todos";
 import NewTodo from "./components/NewTodo";
 import TodosContextProvider from "./store/todosContext";
+import { Container } from "@chakra-ui/react";
 
 
 function App() {
@@ -20,8 +21,10 @@ function App() {
   // }
   return (
     <TodosContextProvider>
+      <Container mt="2rem" width="60%" bg={"rgb(247, 248, 217)"} border={"1px solid rgb(195, 196, 184)"} borderRadius={"5px"} boxShadow={"2px 2px 5px rgb(151, 152, 146)"}>
       <NewTodo />
       <Todos />
+      </Container>
     </TodosContextProvider>
   );
 }
