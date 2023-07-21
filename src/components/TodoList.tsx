@@ -1,9 +1,9 @@
 
 import React from 'react'
 import classes from "./TodoList.module.css"
-const TodoList:React.FC<{text: string}> = (props) => {
+const TodoList:React.FC<{text: string; onRemove: () => void}> = (props) => {
   return (
-    <li className={classes.item}>{props.text}</li>
+    <li className={classes.item} onClick={props.onRemove}>{props.text}</li>
   )
 }
 
